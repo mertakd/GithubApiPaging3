@@ -61,6 +61,11 @@ class SearchRepositoriesViewModel(
 
     val pagingDataFlow: Flow<PagingData<Repo>>
 
+    /**
+     * Processor of side effects from the UI which in turn feedback into [state]
+     */
+    val accept: (UiAction) -> Unit
+
     init {
         val initialQuery: String = savedStateHandle.get(LAST_SEARCH_QUERY) ?: DEFAULT_QUERY
         val lastQueryScrolled: String = savedStateHandle.get(LAST_QUERY_SCROLLED) ?: DEFAULT_QUERY
@@ -105,8 +110,9 @@ class SearchRepositoriesViewModel(
         accept = { action ->
             viewModelScope.launch { actionStateFlow.emit(action) }
         }
-
     }
+
+
 
 
     override fun onCleared() {
