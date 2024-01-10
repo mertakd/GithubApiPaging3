@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4081373-2f02-4f6f-8c0b-01601af9e515" name="Changes" comment="">
+    <list default="true" id="b4081373-2f02-4f6f-8c0b-01601af9e515" name="Changes" comment="5.Define the source of data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/codelabs/paging/data/GithubPagingSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/codelabs/paging/data/GithubPagingSource.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/codelabs/paging/data/GithubRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/codelabs/paging/data/GithubRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/codelabs/paging/ui/SearchRepositoriesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/codelabs/paging/ui/SearchRepositoriesViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +129,15 @@
       <option name="presentableId" value="Default" />
       <updated>1704544758841</updated>
     </task>
+    <task id="LOCAL-00001" summary="5.Define the source of data">
+      <option name="closed" value="true" />
+      <created>1704893213981</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704893213981</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,5 +150,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="5.Define the source of data" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.Define the source of data" />
   </component>
 </project>
