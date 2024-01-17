@@ -27,6 +27,8 @@ class GithubPagingSource(
             val nextKey = if (repos.isEmpty()){
                 null
             }else{
+                // initial load size = 3 * NETWORK_PAGE_SIZE
+                // ensure we're not requesting duplicating items, at the 2nd request
                 position + (params.loadSize / NETWORK_PAGE_SIZE)
             }
             LoadResult.Page(
@@ -41,11 +43,6 @@ class GithubPagingSource(
         }
     }
 
-    companion object {
-        const val NETWORK_PAGE_SIZE = 30
-    }
-
-
 
 
     override fun getRefreshKey(state: PagingState<Int, Repo>): Int? {
@@ -54,4 +51,14 @@ class GithubPagingSource(
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
         }
     }
+
+
+
+
+    companion object {
+        const val NETWORK_PAGE_SIZE = 30
+    }
 }
+
+
+
