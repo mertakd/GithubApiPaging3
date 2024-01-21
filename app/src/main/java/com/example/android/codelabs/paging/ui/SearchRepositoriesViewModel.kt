@@ -185,7 +185,7 @@ private val UiModel.RepoItem.roundedStarCount: Int
 
 
 
-private const val VISIBLE_THRESHOLD = 5
+
 private const val LAST_SEARCH_QUERY: String = "last_search_query"
 private const val DEFAULT_QUERY = "Android"
 private const val LAST_QUERY_SCROLLED: String = "last_query_scrolled"
