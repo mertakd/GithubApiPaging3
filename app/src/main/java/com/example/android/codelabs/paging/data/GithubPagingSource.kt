@@ -4,6 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.android.codelabs.paging.api.GithubService
 import com.example.android.codelabs.paging.api.IN_QUALIFIER
+import com.example.android.codelabs.paging.data.GithubRepository.Companion.NETWORK_PAGE_SIZE
 import com.example.android.codelabs.paging.model.Repo
 import okio.IOException
 import retrofit2.HttpException
@@ -55,9 +56,7 @@ class GithubPagingSource(
 
 
 
-    companion object {
-        const val NETWORK_PAGE_SIZE = 30
-    }
+
 }
 
 

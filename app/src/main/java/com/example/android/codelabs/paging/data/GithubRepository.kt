@@ -49,5 +49,4 @@ class GithubRepository(private val service: GithubService) {
     }
 
 
-
 }

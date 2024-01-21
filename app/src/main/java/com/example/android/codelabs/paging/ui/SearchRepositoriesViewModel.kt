@@ -71,7 +71,7 @@ class SearchRepositoriesViewModel(
     init {
         val initialQuery: String = savedStateHandle.get(LAST_SEARCH_QUERY) ?: DEFAULT_QUERY
         val lastQueryScrolled: String = savedStateHandle.get(LAST_QUERY_SCROLLED) ?: DEFAULT_QUERY
-        val actionStateFlow = MutableSharedFlow<UiAction>()
+        val actionStateFlow = MutableSharedFlow<UiAction>() //actionStateFlow adında bir paylaşılan akış oluşturulur. Bu akış, UI tarafından gönderilen eylemleri (UiAction) içerir.
         val searches = actionStateFlow
             .filterIsInstance<UiAction.Search>()
             .distinctUntilChanged()
@@ -100,6 +100,9 @@ class SearchRepositoriesViewModel(
                 query = search.query,
                 lastQueryScrolled = scroll.currentQuery,
                 // If the search query matches the scroll query, the user has scrolled
+                // Arama sorgusu kaydırma sorgusuyla eşleşiyorsa kullanıcı kaydırmıştır
+                //search nesnesinin query özelliği, scroll nesnesinin currentQuery özelliğine eşit değilse, hasNotScrolledForCurrentSearch değeri true olur; aksi takdirde, yani bu iki özellik eşitse, hasNotScrolledForCurrentSearch değeri false olur.
+
                 hasNotScrolledForCurrentSearch = search.query != scroll.currentQuery
             )
         }
@@ -112,16 +115,12 @@ class SearchRepositoriesViewModel(
         accept = { action ->
             viewModelScope.launch { actionStateFlow.emit(action) }
         }
+
     }
 
 
 
 
-    override fun onCleared() {
-        savedStateHandle[LAST_SEARCH_QUERY] = state.value.query
-        savedStateHandle[LAST_QUERY_SCROLLED] = state.value.lastQueryScrolled
-        super.onCleared()
-    }
 
     private fun searchRepo(queryString: String): Flow<PagingData<UiModel>> =
         repository.getSearchResultStream(queryString)
@@ -150,6 +149,14 @@ class SearchRepositoriesViewModel(
                     }
                 }
             }
+
+
+    override fun onCleared() {
+        savedStateHandle[LAST_SEARCH_QUERY] = state.value.query
+        savedStateHandle[LAST_QUERY_SCROLLED] = state.value.lastQueryScrolled
+        super.onCleared()
+    }
+
 }
 
 
